@@ -40,6 +40,10 @@ jobs:
          username: shesselink81
          password: 0UmoYycNwzjhBz9F0rM0YaGtD
       -
-        name: Build
+        name: Build1
         run: |
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64 -t shesselink81/dockerd-exporter:latest-multi-test -f ./dockerd-exporter/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64 -t shesselink81/dockerd-exporter:latest -f ./dockerd-exporter/Dockerfile --push .
+      -
+        name: Build2
+        run: |
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t shesselink81/node-exporter:latest -f ./node-exporter/Dockerfile --push .
