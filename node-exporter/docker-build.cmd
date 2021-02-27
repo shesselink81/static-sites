@@ -1,4 +1,2 @@
-docker buildx create --name mybuilder
 docker buildx use mybuilder
-docker buildx inspect --bootstrap
-docker buildx build --push --platform linux/arm/v7,linux/amd64 --tag quay.io/shesselink81/node-exporter:latest --no-cache .
+docker buildx build --push --platform linux/arm/v7,linux/amd64,linux/arm64 --tag quay.io/shesselink81/node-exporter:latest -f .\node-exporter\Dockerfile .
