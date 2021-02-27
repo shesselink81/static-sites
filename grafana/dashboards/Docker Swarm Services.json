@@ -14,10 +14,11 @@
     ]
   },
   "description": "Docker Swarm stacks and services metrics",
-  "editable": true,
+  "editable": false,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1614376887761,
+  "id": 4,
+  "iteration": 1614444372644,
   "links": [],
   "panels": [
     {
@@ -1945,7 +1946,7 @@
       {
         "allValue": ".+",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -2061,7 +2062,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {

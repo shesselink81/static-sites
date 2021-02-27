@@ -14,11 +14,11 @@
     ]
   },
   "description": "Quick dashboard for Prometheus metrics",
-  "editable": true,
+  "editable": false,
   "gnetId": 1860,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1614378374191,
+  "id": 1,
+  "iteration": 1614444766308,
   "links": [],
   "panels": [
     {
@@ -13669,8 +13669,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "10.0.30.17:9100",
-          "value": "10.0.30.17:9100"
+          "text": "10.0.33.67:9100",
+          "value": "10.0.33.67:9100"
         },
         "datasource": "Prometheus",
         "definition": "label_values(up{job=\"$job\"}, instance)",
@@ -13755,5 +13755,5 @@
   "timezone": "browser",
   "title": "Prometheus Node Exporter Full",
   "uid": "rYdddlPWk",
-  "version": 8
+  "version": 1
 }
