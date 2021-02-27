@@ -37,9 +37,13 @@ jobs:
        name: Docker Login
        uses: docker/login-action@v1.6.0
        with:
+         registry: quay.io
          username: shesselink81
-         password: 0UmoYycNwzjhBz9F0rM0YaGtD
+         password: PsstPzzwRAz3HA/Us3TipiWK3wGIhW4v2PdO28ni09j0De/XqOe+r8XS2s96PjG9u+FyLEUOkb8QA8f79J3xZBiwY6G16M5DMsxey+OjGxg=
       -
         name: Build
         run: |
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64 -t shesselink81/dockerd-exporter:latest -f ./dockerd-exporter/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64 -t quay.io/shesselink81/dockerd-exporter:latest -f ./dockerd-exporter/Dockerfile --push .
+          docker build --platform linux/amd64 --build-arg "GRAFANA_VERSION=latest" --build-arg "GF_INSTALL_IMAGE_RENDERER_PLUGIN=true" --build-arg "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel" -t quay.io/shesselink81/grafana:latest -f ./grafana/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm/v6,linux/arm64 -t quay.io/shesselink81/node-exporter:latest -f ./node-exporter/Dockerfile --push .
+          docker build --platform linux/arm/v7 -t quay.io/shesselink81/cadvisor:v0.37.5-armv7 -f ./cadvisor-armv7/Dockerfile --push .
