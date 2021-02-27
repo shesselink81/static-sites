@@ -26,9 +26,9 @@ fi
 USER grafana
 
 ##
-COPY datasources /etc/grafana/provisioning/datasources/
-COPY swarmprom_dashboards.yml /etc/grafana/provisioning/dashboards/
-COPY dashboards /etc/grafana/dashboards/
+COPY grafana/datasources /etc/grafana/provisioning/datasources/
+COPY grafana/swarmprom_dashboards.yml /etc/grafana/provisioning/dashboards/
+COPY grafana/dashboards /etc/grafana/dashboards/
 ENV GF_PATHS_PROVISIONING=/etc/grafana/provisioning/
 
 ENV GF_RENDERER_PLUGIN_CHROME_BIN="/usr/bin/chromium-browser"
