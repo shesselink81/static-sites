@@ -19,7 +19,8 @@ RUN apk --no-cache add libc6-compat device-mapper findutils ndctl && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
     rm -rf /var/cache/apk/*
 
-COPY ./cadvisor-armv7/bin/cadvisor /usr/bin/cadvisor
+COPY cadvisor-armv7/bin/cadvisor /usr/bin/cadvisor
+RUN chmod 755 /usr/bin/cadvisor
 
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/cadvisor", "-logtostderr"]
