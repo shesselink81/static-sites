@@ -39,7 +39,7 @@ jobs:
        with:
          registry: quay.io
          username: shesselink81
-         password: PsstPzzwRAz3HA/Us3TipiWK3wGIhW4v2PdO28ni09j0De/XqOe+r8XS2s96PjG9u+FyLEUOkb8QA8f79J3xZBiwY6G16M5DMsxey+OjGxg=
+         password: 5EsNhfcviK3kficPNsE3JdVRdZ9MlesuZwqYdmEaxfsIuKFkGDrXFFtBG6LpIZgolntVxsSLuS/IrNDOYBm44Q==
       -
         name: Build
         run: |
