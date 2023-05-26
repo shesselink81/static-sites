@@ -45,7 +45,7 @@ jobs:
         run: |
           docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/anna-nginx:1.0.1 -f ./anna-nginx/Dockerfile --push .
           docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/hesselinkme-nginx:1.0.0 -f ./hesselinkme-nginx/Dockerfile --push .
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/dockerd-exporter:latest -f ./dockerd-exporter/Dockerfile --push .
+          #docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/dockerd-exporter:latest -f ./dockerd-exporter/Dockerfile --push .
           docker build --platform linux/amd64 --build-arg "GRAFANA_VERSION=latest" --build-arg "GF_INSTALL_IMAGE_RENDERER_PLUGIN=false" --build-arg "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel" -t quay.io/shesselink81/grafana:latest -f ./grafana/Dockerfile --push .
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/node-exporter:latest -f ./node-exporter/Dockerfile --push .
-          docker build --platform linux/arm/v7 -t quay.io/shesselink81/cadvisor:v0.37.5-armv7 -f ./cadvisor-armv7/Dockerfile --push .
+          #docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/node-exporter:latest -f ./node-exporter/Dockerfile --push .
+          #docker build --platform linux/arm/v7 -t quay.io/shesselink81/cadvisor:v0.37.5-armv7 -f ./cadvisor-armv7/Dockerfile --push .
