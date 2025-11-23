@@ -1,30 +1,23 @@
-# This is a basic workflow to help you get started with Actions
+name: Release on Tag
 
-name: BUILD1
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - 'v*'   # Trigger op tags zoals v1.0.0, v2.3.1 etc.
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+env:
+  # Use docker.io for Docker Hub if empty
+  REGISTRY: ghcr.io
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    name: Build Release
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -33,15 +26,53 @@ jobs:
         id: buildx
         with:
           install: true
-      - 
-       name: Docker Login
-       uses: docker/login-action@v1.6.0
-       with:
-         registry: quay.io
-         username: shesselink81
-         password: 5EsNhfcviK3kficPNsE3JdVRdZ9MlesuZwqYdmEaxfsIuKFkGDrXFFtBG6LpIZgolntVxsSLuS/IrNDOYBm44Q==
+
+        # Login against a Docker registry except on PR
+        # https://github.com/docker/login-action
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build
         run: |
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/anna-nginx:1.0.1 -f ./anna-nginx/Dockerfile --push .
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t quay.io/shesselink81/hesselinkme-nginx:1.0.0 -f ./hesselinkme-nginx/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/anna-nginx:${{ github.ref_name }} -f ./anna-nginx/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/hesselinkme-nginx:${{ github.ref_name }} -f ./hesselinkme-nginx/Dockerfile --push .
+
+      - name: Create artifact (example)
+        run: |
+          mkdir output
+          echo "build completed for $GITHUB_REF_NAME" > output/info.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: output/
+
+  release:
+      name: Create GitHub Release
+      needs: build
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Download build artifacts
+          uses: actions/download-artifact@v4
+          with:
+            name: build-output
+            path: release/
+
+        - name: Create GitHub Release
+          uses: softprops/action-gh-release@v2
+          with:
+            tag_name: ${{ github.ref_name }}
+            name: Release ${{ github.ref_name }}
+            body: |
+              🚀 **Automatische release gebouwd met GitHub Actions**
+              - Commit: ${{ github.sha }}
+              - Tag: ${{ github.ref_name }}
+            files: |
+              release/**
