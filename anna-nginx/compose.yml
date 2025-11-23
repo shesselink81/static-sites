@@ -1,0 +1,7 @@
+  services:
+   anna:
+    image: ghcr.io/shesselink81/anna-nginx:v2.0.0
+    #build: .
+    restart: always
+    ports:
+      - "8090:8080"
