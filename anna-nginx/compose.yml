@@ -1,6 +1,6 @@
   services:
    nginx:
-    image: quay.io/shesselink81/anna-nginx:v2.0.2
+    image: quay.io/shesselink81/anna-nginx:v2.0.3
     #build: .
     restart: always
     ports:
