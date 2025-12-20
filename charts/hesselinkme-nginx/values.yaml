@@ -1,0 +1,12 @@
+image:
+  repository: quay.io/shesselink81/hesselinkme-nginx
+  tag: v2.0.5
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 8080
+
+containerPort: 8080

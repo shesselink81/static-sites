@@ -1,0 +1,6 @@
+apiVersion: v2
+name: anna-nginx
+description: Anna Nginx Helm chart
+type: application
+version: 0.1.0
+appVersion: "v2.0.3"
