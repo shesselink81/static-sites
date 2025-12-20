@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Static NGINX Helm Charts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 2rem;
+      background-color: #011c36;
+      color: #fbfbfc;
+    }
+    h1 { color: #1d4ed8; }
+    h2 { color: #2563eb; }
+    h3 { color: #3b82f6; }
+    pre, code {
+      background: #555557;
+      padding: 0.5rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      display: block;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    table, th, td {
+      border: 3px solid #030c1a;
+    }
+    th, td {
+      padding: 0.5rem;
+      text-align: left;
+    }
+    a { color: #1d4ed8; text-decoration: none; }
+    ul { margin-left: 1.5rem; }
+    .container { max-width: 900px; margin: auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NGINX Static Helm Charts</h1>
+
+    <p>📦 Helm repo:<br>
+      <a href="https://static.charts.hessel.cloud">
+        https://static.charts.hessel.cloud
+      </a>
+    </p>
+
+    <h2>🚀 Quick Start</h2>
+    <h3>Add the Helm Repository</h3>
+    <pre><code>helm repo add static-nginx https://static.charts.hessel.cloud
+helm repo update
+helm install static-anna static-nginx/anna-nginx
+helm install static-hesselinkme static-nginx/hesselinkme-nginx</code></pre>
+
+    <h2>⚙️ Configuration</h2>
+    <p>All configuration is done via <code>values.yaml</code></p>
