@@ -1,7 +1,7 @@
   services:
    nginx:
-    image: quay.io/shesselink81/anna-nginx:v2.0.3
-    #build: .
+    image: quay.io/shesselink81/anna-nginx
+    build: .
     restart: always
     ports:
       - "8090:8080"

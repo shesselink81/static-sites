@@ -39,8 +39,8 @@ jobs:
       -
         name: Build
         run: |
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/anna-nginx:${{ github.ref_name }} -f ./anna-nginx/Dockerfile --push .
-          docker build --platform linux/amd64,linux/arm/v7,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/hesselinkme-nginx:${{ github.ref_name }} -f ./hesselinkme-nginx/Dockerfile --push .
+          docker build --platform linux/amd64,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/anna-nginx:${{ github.ref_name }}  --push ./anna-nginx
+          docker build --platform linux/amd64,linux/arm64 -t ${{ env.REGISTRY }}/${{ github.actor }}/hesselinkme-nginx:${{ github.ref_name }}  --push ./hesselinkme-nginx
 
       - name: Create artifact (example)
         run: |
