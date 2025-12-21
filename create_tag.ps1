@@ -1,4 +1,4 @@
-$version="2.0.6"
+$version="2.0.7"
 git tag -a v$version -m "Release version $version"
 git push origin v$version
 echo "Tag v$version created and pushed to origin."
