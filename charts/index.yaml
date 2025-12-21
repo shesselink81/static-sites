@@ -3,7 +3,17 @@ entries:
   anna-nginx:
   - apiVersion: v2
     appVersion: v2.0.3
-    created: "2025-12-20T22:46:11.5590497+01:00"
+    created: "2025-12-21T01:50:51.7851985+01:00"
+    description: Anna Nginx Helm chart
+    digest: a6229df659d56f492c93e6bf6b60c7108ef27fb3eb094579a1660849c1cb5c47
+    name: anna-nginx
+    type: application
+    urls:
+    - anna-nginx-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v2.0.3
+    created: "2025-12-21T01:50:51.7845779+01:00"
     description: Anna Nginx Helm chart
     digest: b9ede2ae5189629c32b7af6a254a230febea49f22399dd8021ae5d8bfc94d834
     name: anna-nginx
@@ -14,7 +24,17 @@ entries:
   hesselinkme-nginx:
   - apiVersion: v2
     appVersion: v2.0.3
-    created: "2025-12-20T22:46:11.5590497+01:00"
+    created: "2025-12-21T01:50:51.8023263+01:00"
+    description: Hesselink.me Nginx Helm chart
+    digest: df7d9c4c1bed5e4158b0132f694654db97ae92867f68fc3fb4a9e17c949a698d
+    name: hesselinkme-nginx
+    type: application
+    urls:
+    - hesselinkme-nginx-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v2.0.3
+    created: "2025-12-21T01:50:51.8018+01:00"
     description: Hesselink.me Nginx Helm chart
     digest: 95271eab36b9ae185b7819c1713d608f012f6818d8c40fdd4bff2f95148a94a1
     name: hesselinkme-nginx
@@ -22,4 +42,4 @@ entries:
     urls:
     - hesselinkme-nginx-0.1.0.tgz
     version: 0.1.0
-generated: "2025-12-20T22:46:11.5579577+01:00"
+generated: "2025-12-21T01:50:51.7590301+01:00"
