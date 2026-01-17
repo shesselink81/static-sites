@@ -10,3 +10,14 @@ service:
   port: 8080
 
 containerPort: 8080
+
+httproute:
+  enabled: false
+  hostnames:
+    - example.com
+  gateway:
+    name: default-gateway
+    namespace: default
+  path:
+    type: PathPrefix
+    value: /
