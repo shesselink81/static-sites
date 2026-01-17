@@ -37,7 +37,7 @@ The following table lists the configurable parameters of the Hesselink.me Nginx 
 | `replicaCount` | Number of replicas | `1` |
 | `service.type` | Service type | `ClusterIP` |
 | `service.port` | Service port | `8080` |
-| `containerPort` | Container port | `8080` |
+| `containerPort` | Container port | `80` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
