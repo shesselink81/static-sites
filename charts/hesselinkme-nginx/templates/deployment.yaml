@@ -8,11 +8,11 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        {{- include "hesselinkme.labels" . | nindent 4 }}
+        app: {{ .Release.Name }}
     spec:
       containers:
         - name: nginx
