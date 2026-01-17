@@ -2,5 +2,11 @@ apiVersion: v2
 name: anna-nginx
 description: Anna Nginx Helm chart
 type: application
-version: 0.2.4
+version: 0.2.5
 appVersion: "v2.0.3"
+icon: https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/nginx/logo.png
+home: https://github.com/shesselink81/static-sites
+maintainers:
+  - name: shesselink81
+sources:
+  - https://github.com/shesselink81/static-sites/tree/main/charts/anna-nginx
