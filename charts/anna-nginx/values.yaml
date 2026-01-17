@@ -1,6 +1,6 @@
 image:
   repository: quay.io/shesselink81/anna-nginx
-  tag: v2.0.7
+  tag: v2.0.9
   pullPolicy: IfNotPresent
 
 replicaCount: 1
