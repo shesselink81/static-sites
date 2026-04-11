@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine-slim
+FROM nginx:mainline-alpine-slim
 
 # Kopieer static site
 COPY /hesselinkme-static /usr/share/nginx/html
