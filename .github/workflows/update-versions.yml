@@ -53,6 +53,4 @@ jobs:
                 --base main \
                 --head "$BRANCH" \
                 --title "chore: auto-update nginx Helm chart versions" \
-                --body "Automated version bump for anna-nginx and hesselinkme-nginx Helm charts.
-
-Triggered by scheduled workflow. Review the diff and merge when ready."
+                --body $'Automated version bump for anna-nginx and hesselinkme-nginx Helm charts.\n\nTriggered by scheduled workflow. Review the diff and merge when ready.'
