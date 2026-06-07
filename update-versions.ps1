@@ -303,10 +303,14 @@ $baseImageChecks = @(
     @{ Label = 'wordpress:cli-php8.5';        Image = 'wordpress'; Flavor = 'php8.5-cli';        Major = ''  }
 )
 
+$nginxBaseVersion = ''
 foreach ($bi in $baseImageChecks) {
     $latest = Get-LatestDockerHubTag $bi.Image $bi.Flavor $bi.Major
     if ($latest) {
         Write-Note "$($bi.Label)  ->  latest versioned tag: $latest"
+        if ($bi.Image -eq 'nginx' -and $latest -match '^(\d+\.\d+\.\d+)') {
+            $nginxBaseVersion = $Matches[1]
+        }
     } else {
         Write-Warn "Could not determine latest versioned tag for $($bi.Label)"
     }
@@ -347,12 +351,15 @@ foreach ($chartName in @('anna-nginx', 'hesselinkme-nginx')) {
     if (Test-IsNewer $currentTag $latestTag) {
         Write-New "$chartName`: $currentTag -> $latestTag"
 
+        # appVersion tracks the underlying nginx version, not the custom image tag
+        $appVer = if ($nginxBaseVersion) { $nginxBaseVersion } else { $latestTag -replace '^v', '' }
+
         # Compute bumped chart version upfront (used for badges even in DryRun)
         $bumpedChartVer = Get-BumpedPatchVersion $chartVer
 
-        Update-ValuesTag          -Path $valuesPath -OldTag $currentTag -NewTag $latestTag           -DryRun:$DryRun | Out-Null
-        Update-ChartYaml          -Path $chartPath  -NewAppVersion $latestTag                         -DryRun:$DryRun | Out-Null
-        Update-ReadmeBadges       -Path $readmePath -ChartVersion $bumpedChartVer -AppVersion $latestTag -DryRun:$DryRun | Out-Null
+        Update-ValuesTag          -Path $valuesPath -OldTag $currentTag -NewTag $latestTag            -DryRun:$DryRun | Out-Null
+        Update-ChartYaml          -Path $chartPath  -NewAppVersion $appVer                            -DryRun:$DryRun | Out-Null
+        Update-ReadmeBadges       -Path $readmePath -ChartVersion $bumpedChartVer -AppVersion $appVer -DryRun:$DryRun | Out-Null
         Update-ReadmeTableDefault -Path $readmePath -Param 'image.tag' -NewVal $latestTag             -DryRun:$DryRun | Out-Null
         Update-MainReadmeVersion  -Path $mainReadme -ChartName $chartName -NewVersion $bumpedChartVer -DryRun:$DryRun | Out-Null
         Invoke-HelmReindex        -ChartDir $chartDir -ChartsOutputDir $chartsDir                     -DryRun:$DryRun | Out-Null
