@@ -32,8 +32,8 @@ The create_tag.ps1 script can be used on Windows to create and push Git tags, ty
 This repository includes Helm charts for Kubernetes deployment of both services:
 
 ### Available Charts
-- **anna-nginx** – Helm chart for the Anna website (v0.2.3)
-- **hesselinkme-nginx** – Helm chart for the hesselink.me website (v0.2.3)
+- **anna-nginx** – Helm chart for the Anna website (1.29.10)
+- **hesselinkme-nginx** – Helm chart for the hesselink.me website (1.29.10)
 
 ### Installation
 

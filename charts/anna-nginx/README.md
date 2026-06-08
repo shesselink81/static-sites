@@ -1,6 +1,6 @@
 # Anna Nginx
 
-![Version: 1.29.9](https://img.shields.io/badge/Version-1.29.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.31.1](https://img.shields.io/badge/AppVersion-1.31.1-informational?style=flat-square)
+![Version: 1.29.10](https://img.shields.io/badge/Version-1.29.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.31.1](https://img.shields.io/badge/AppVersion-1.31.1-informational?style=flat-square)
 
 Anna Nginx Helm chart
 
@@ -32,7 +32,7 @@ The following table lists the configurable parameters of the Anna Nginx chart an
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | `image.repository` | The image repository | `quay.io/shesselink81/anna-nginx` |
-| `image.tag` | The image tag | `v2.0.5` |
+| `image.tag` | The image tag | `v2.0.9` |
 | `image.pullPolicy` | Image pull policy | `IfNotPresent` |
 | `replicaCount` | Number of replicas | `1` |
 | `service.type` | Service type | `ClusterIP` |
