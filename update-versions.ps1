@@ -176,15 +176,15 @@ function Update-ValuesImageRef ([string]$Path, [string]$OldRef, [string]$NewRef,
 }
 
 # Updates `version: "<old>"` under env.wp in a values.yaml file.
-function Update-ValuesWpVersion ([string]$Path, [string]$OldVer, [string]$NewVer, [switch]$DryRun) {
-    $c = Get-Content $Path -Raw
-    $u = $c -replace "(?m)^(\s*version:\s*)""$([regex]::Escape($OldVer))""\s*$", "`${1}`"$NewVer`""
-    if (Save-IfChanged $Path $c $u -DryRun:$DryRun) {
-        Write-Changed "$(Split-Path $Path -Leaf): env.wp.version  `"$OldVer`" -> `"$NewVer`""
-        return $true
-    }
-    return $false
-}
+# function Update-ValuesWpVersion ([string]$Path, [string]$OldVer, [string]$NewVer, [switch]$DryRun) {
+#     $c = Get-Content $Path -Raw
+#     $u = $c -replace "(?m)^(\s*version:\s*)""$([regex]::Escape($OldVer))""\s*$", "`${1}`"$NewVer`""
+#     if (Save-IfChanged $Path $c $u -DryRun:$DryRun) {
+#         Write-Changed "$(Split-Path $Path -Leaf): env.wp.version  `"$OldVer`" -> `"$NewVer`""
+#         return $true
+#     }
+#     return $false
+# }
 
 # Bumps Chart.yaml `version` (patch +1) and sets `appVersion`. Preserves inline comments.
 function Update-ChartYaml ([string]$Path, [string]$NewAppVersion, [switch]$DryRun) {
@@ -445,9 +445,9 @@ if (-not (Test-Path $WordpressRepo)) {
         $newWpVer = ''
         if ($activeFpmTag -match '^v?(\d+\.\d+\.\d+)') { $newWpVer = $Matches[1] }
 
-        if ($newWpVer -and $newWpVer -ne $currentWpVer) {
-            Update-ValuesWpVersion -Path $wpValuesPath -OldVer $currentWpVer -NewVer $newWpVer -DryRun:$DryRun | Out-Null
-        }
+        # if ($newWpVer -and $newWpVer -ne $currentWpVer) {
+        #     Update-ValuesWpVersion -Path $wpValuesPath -OldVer $currentWpVer -NewVer $newWpVer -DryRun:$DryRun | Out-Null
+        # }
 
         $appVerForChart = if ($newWpVer) { $newWpVer } else { $activeFpmTag -replace '^v', '' }
         Update-ChartYaml -Path $wpChartPath -NewAppVersion $appVerForChart -DryRun:$DryRun | Out-Null
