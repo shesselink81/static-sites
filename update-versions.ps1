@@ -297,10 +297,10 @@ function Update-ReadmeImageRef ([string]$Path, [string]$OldRef, [string]$NewRef,
 Write-Header 'Dockerfile base image versions (informational)'
 
 $baseImageChecks = @(
-    @{ Label = 'nginx:mainline-alpine-slim';  Image = 'nginx';     Flavor = 'alpine-slim';       Major = '1'  }
-    @{ Label = 'wordpress:php8.4-fpm-alpine'; Image = 'wordpress'; Flavor = 'php8.4-fpm-alpine'; Major = '7'  }
-    @{ Label = 'wordpress:php8.4-apache';   Image = 'wordpress'; Flavor = 'php8.4-apache';     Major = '7' }
-    @{ Label = 'wordpress:cli-php8.4';        Image = 'wordpress'; Flavor = 'php8.4-cli';        Major = '2'  }
+    @{ Label = 'nginx:mainline-alpine-slim';  Image = 'nginx';     Flavor = 'alpine-slim';       Major = ''  }
+    @{ Label = 'wordpress:7-php8.4-fpm-alpine'; Image = 'wordpress'; Flavor = 'php8.4-fpm-alpine'; Major = '7'  }
+    @{ Label = 'wordpress:7-php8.4-apache';   Image = 'wordpress'; Flavor = 'php8.4-apache';     Major = '7' }
+    @{ Label = 'wordpress:cli-2-php8.4';      Image = 'wordpress'; Flavor = 'cli-2-php8.4';        Major = ''  }
 )
 
 $nginxBaseVersion = ''
