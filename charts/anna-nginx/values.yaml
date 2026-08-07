@@ -1,6 +1,6 @@
 image:
   repository: quay.io/shesselink81/anna-nginx
-  tag: v2.0.9
+  tag: v1.31.2
   pullPolicy: IfNotPresent
 
 replicaCount: 1
@@ -21,3 +21,24 @@ httproute:
   path:
     type: PathPrefix
     value: /
+
+otelCollector:
+  enabled: true
+  image:
+    repository: otel/opentelemetry-collector
+    tag: latest
+    pullPolicy: IfNotPresent
+  config: |
+    receivers:
+      otlp:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:4317
+    exporters:
+      debug:
+        verbosity: detailed
+    service:
+      pipelines:
+        traces:
+          receivers: [otlp]
+          exporters: [debug]

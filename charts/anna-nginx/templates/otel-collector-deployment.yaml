@@ -1,0 +1,32 @@
+{{- if .Values.otelCollector.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-collector
+  labels:
+    {{- include "annamaniacs.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-collector
+  template:
+    metadata:
+      labels:
+        app: otel-collector
+    spec:
+      containers:
+        - name: otel-collector
+          image: "{{ .Values.otelCollector.image.repository }}:{{ .Values.otelCollector.image.tag }}"
+          imagePullPolicy: {{ .Values.otelCollector.image.pullPolicy }}
+          ports:
+            - containerPort: 4317
+          volumeMounts:
+            - name: config
+              mountPath: /etc/otelcol/config.yaml
+              subPath: config.yaml
+      volumes:
+        - name: config
+          configMap:
+            name: otel-collector-config
+{{- end }}

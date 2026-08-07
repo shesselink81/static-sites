@@ -1,0 +1,15 @@
+{{- if .Values.otelCollector.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-collector
+  labels:
+    {{- include "hesselinkme.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    app: otel-collector
+  ports:
+    - port: 4317
+      targetPort: 4317
+{{- end }}

@@ -1,6 +1,6 @@
 # Anna Nginx
 
-![Version: 1.31.2](https://img.shields.io/badge/Version-1.31.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.31.3](https://img.shields.io/badge/AppVersion-1.31.3-informational?style=flat-square)
+![Version: 1.31.3](https://img.shields.io/badge/Version-1.31.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.31.2](https://img.shields.io/badge/AppVersion-1.31.2-informational?style=flat-square)
 
 Anna Nginx Helm chart
 
@@ -32,12 +32,17 @@ The following table lists the configurable parameters of the Anna Nginx chart an
 | Parameter | Description | Default |
 |-----------|-------------|---------|
 | `image.repository` | The image repository | `quay.io/shesselink81/anna-nginx` |
-| `image.tag` | The image tag | `v2.0.9` |
+| `image.tag` | The image tag | `v1.31.2` |
 | `image.pullPolicy` | Image pull policy | `IfNotPresent` |
 | `replicaCount` | Number of replicas | `1` |
 | `service.type` | Service type | `ClusterIP` |
 | `service.port` | Service port | `8080` |
 | `containerPort` | Container port | `80` |
+| `otelCollector.enabled` | Deploy an OpenTelemetry Collector for nginx traces | `true` |
+| `otelCollector.image.repository` | OTel Collector image repository | `otel/opentelemetry-collector` |
+| `otelCollector.image.tag` | OTel Collector image tag | `latest` |
+| `otelCollector.image.pullPolicy` | OTel Collector image pull policy | `IfNotPresent` |
+| `otelCollector.config` | OTel Collector config file contents | see `values.yaml` |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
 
