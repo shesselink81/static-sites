@@ -10,7 +10,7 @@
       - otel-collector
 
    otel-collector:
-    image: otel/opentelemetry-collector:latest
+    image: otel/opentelemetry-collector-contrib:latest
     restart: always
     volumes:
-      - ./otel-collector-config.yaml:/etc/otelcol/config.yaml
+      - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml

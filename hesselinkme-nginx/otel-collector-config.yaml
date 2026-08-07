@@ -4,12 +4,28 @@ receivers:
       grpc:
         endpoint: 0.0.0.0:4317
 
+connectors:
+  span_metrics:
+    histogram:
+      explicit:
+        buckets: [10ms, 50ms, 100ms, 250ms, 500ms, 1s, 5s]
+    dimensions:
+      - name: http.method
+      - name: http.status_code
+
 exporters:
   debug:
     verbosity: detailed
+  otlp_http/prometheus:
+    endpoint: http://prometheus-kube-prometheus-prometheus.monitoring.svc:9090/api/v1/otlp
+    tls:
+      insecure: true
 
 service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [debug]
+      exporters: [debug, span_metrics]
+    metrics:
+      receivers: [span_metrics]
+      exporters: [otlp_http/prometheus]
