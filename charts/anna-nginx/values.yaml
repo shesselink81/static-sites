@@ -43,8 +43,6 @@ otelCollector:
           - name: http.method
           - name: http.status_code
     exporters:
-      debug:
-        verbosity: detailed
       otlp_http/prometheus:
         endpoint: http://prometheus-kube-prometheus-prometheus.monitoring.svc:9090/api/v1/otlp
         tls:
@@ -53,7 +51,7 @@ otelCollector:
       pipelines:
         traces:
           receivers: [otlp]
-          exporters: [debug, span_metrics]
+          exporters: [span_metrics]
         metrics:
           receivers: [span_metrics]
           exporters: [otlp_http/prometheus]
