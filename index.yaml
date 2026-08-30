@@ -1,0 +1,37 @@
+apiVersion: v1
+entries:
+  anna-nginx:
+  - apiVersion: v2
+    appVersion: 1.31.9
+    created: "2026-08-30T01:33:31.079076375Z"
+    description: Anna Nginx Helm chart
+    digest: 561f01d41eb76ac65e537cd70e5568a35ac043ca09c22dcb89086ab61e13eb17
+    home: https://github.com/shesselink81/static-sites
+    icon: https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/nginx/logo.png
+    maintainers:
+    - name: shesselink81
+    name: anna-nginx
+    sources:
+    - https://github.com/shesselink81/static-sites/tree/main/charts/anna-nginx
+    type: application
+    urls:
+    - https://github.com/shesselink81/static-sites/releases/download/anna-nginx-1.31.9/anna-nginx-1.31.9.tgz
+    version: 1.31.9
+  hesselinkme-nginx:
+  - apiVersion: v2
+    appVersion: 1.31.9
+    created: "2026-08-30T01:33:31.245585601Z"
+    description: Hesselink.me Nginx Helm chart
+    digest: 435629ea42a9d5bf22d3f142dee8f9926fa26c2bd9a80c59ee78943e62384f51
+    home: https://github.com/shesselink81/static-sites
+    icon: https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/nginx/logo.png
+    maintainers:
+    - name: shesselink81
+    name: hesselinkme-nginx
+    sources:
+    - https://github.com/shesselink81/static-sites/tree/main/charts/hesselinkme-nginx
+    type: application
+    urls:
+    - https://github.com/shesselink81/static-sites/releases/download/hesselinkme-nginx-1.31.9/hesselinkme-nginx-1.31.9.tgz
+    version: 1.31.9
+generated: "2026-08-30T01:33:31.245597754Z"
