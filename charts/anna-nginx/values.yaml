@@ -1,6 +1,6 @@
 image:
   repository: quay.io/shesselink81/anna-nginx
-  tag: v2.0.9
+  tag: ""  # defaults to Chart.appVersion
   pullPolicy: IfNotPresent
 
 replicaCount: 1
