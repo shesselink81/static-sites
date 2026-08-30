@@ -2,6 +2,22 @@ apiVersion: v1
 entries:
   anna-nginx:
   - apiVersion: v2
+    appVersion: 1.31.10
+    created: "2026-08-30T02:12:21.804014834Z"
+    description: Anna Nginx Helm chart
+    digest: c22bcc54f43b2cd4f953890451c3824cab61b42c16b4734569790792ef84f309
+    home: https://github.com/shesselink81/static-sites
+    icon: https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/nginx/logo.png
+    maintainers:
+    - name: shesselink81
+    name: anna-nginx
+    sources:
+    - https://github.com/shesselink81/static-sites/tree/main/charts/anna-nginx
+    type: application
+    urls:
+    - https://github.com/shesselink81/static-sites/releases/download/anna-nginx-1.31.10/anna-nginx-1.31.10.tgz
+    version: 1.31.10
+  - apiVersion: v2
     appVersion: 1.31.9
     created: "2026-08-30T01:33:31.079076375Z"
     description: Anna Nginx Helm chart
@@ -19,6 +35,22 @@ entries:
     version: 1.31.9
   hesselinkme-nginx:
   - apiVersion: v2
+    appVersion: 1.31.10
+    created: "2026-08-30T02:12:21.929249889Z"
+    description: Hesselink.me Nginx Helm chart
+    digest: 66a2234a994cd45f4432e28a7c5087e8d09e783d046cd1b98a430eaa0cba5e88
+    home: https://github.com/shesselink81/static-sites
+    icon: https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/nginx/logo.png
+    maintainers:
+    - name: shesselink81
+    name: hesselinkme-nginx
+    sources:
+    - https://github.com/shesselink81/static-sites/tree/main/charts/hesselinkme-nginx
+    type: application
+    urls:
+    - https://github.com/shesselink81/static-sites/releases/download/hesselinkme-nginx-1.31.10/hesselinkme-nginx-1.31.10.tgz
+    version: 1.31.10
+  - apiVersion: v2
     appVersion: 1.31.9
     created: "2026-08-30T01:33:31.245585601Z"
     description: Hesselink.me Nginx Helm chart
@@ -34,4 +66,4 @@ entries:
     urls:
     - https://github.com/shesselink81/static-sites/releases/download/hesselinkme-nginx-1.31.9/hesselinkme-nginx-1.31.9.tgz
     version: 1.31.9
-generated: "2026-08-30T01:33:31.245597754Z"
+generated: "2026-08-30T02:12:21.929261326Z"
